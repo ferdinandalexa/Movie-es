@@ -154,6 +154,9 @@ body {
     width: 100%;
     grid-area: movies;
     overflow: auto;
+    /* position: relative;
+    bottom: 10px; */
+    margin: 0 0 30px;
 }
 
 .peliculas .title {
@@ -168,6 +171,7 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     width: 100%;
+    /* overflow: hidden; */
 }
 
 .movie {
@@ -175,6 +179,7 @@ body {
     max-height: 224px;
     position: relative;
     margin: 0 10px;
+    overflow: hidden;
 }
 
 .movie-cover, .movie-cover img {
@@ -192,6 +197,11 @@ body {
     color: white;
     padding: 0 15px;
     position: absolute;
-    bottom: 0;
+    bottom: -200px;
     left: 0;
+    transition: bottom 0.5s;
+}
+
+.movie:hover .description {
+    bottom: 0;
 }
