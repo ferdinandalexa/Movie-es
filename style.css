@@ -1,0 +1,73 @@
+body {
+    height: 100vh;
+    margin: 0;
+    font-family: Arial;
+}
+
+.grid-container {
+    height: 100%;
+    display: grid;
+    grid-template: 70px 1fr/ 90px 1fr;
+    grid-template-areas: "header header"
+                         "navbar movies"
+}
+
+.header {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-areas: "logo search search user";
+    grid-area: header
+}
+
+.logo {
+    grid-area: logo;
+}
+
+.search {
+    grid-area: search;
+    
+}
+
+.user {
+    grid-area: user;
+    display: flex;
+    align-items: center;
+}
+
+.navbar {
+    background-color: #fe5e60;
+    display: grid;
+    grid-template: repeat(9, 1fr) / 100%;
+    grid-template-areas: "home"
+                         "trending"
+                         "likes"
+                         "."
+                         "."
+                         "."
+                         "."
+                         "."
+                         "settings";
+    grid-area: navbar;                    
+}
+
+.home{
+    grid-area: home;
+}
+
+.trending{
+    grid-area: trending;
+}
+
+.likes{
+    grid-area: likes;
+}
+
+.settings{
+    grid-area: settings;
+}
+
+.movies {
+    display: flex;
+    grid-area: movies;
+}
+
