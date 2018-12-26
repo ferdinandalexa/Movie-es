@@ -35,14 +35,16 @@ body {
     display: grid;
     grid-template: 70px 1fr/ 90px 1fr;
     grid-template-areas: "header header"
-                         "navbar movies"
+    "navbar movies"
 }
 
 .header {
+    z-index: 2;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-areas: "logo search search user";
-    grid-area: header
+    grid-area: header;
+    box-shadow: 0 0 5px gray;
 }
 
 .logo {
@@ -86,18 +88,19 @@ body {
 }
 
 .navbar {
+    z-index: 1;
     background-color: #fe5e60;
     display: grid;
     grid-template: repeat(9, 1fr) / 100%;
     grid-template-areas: "home"
-                         "trending"
-                         "likes"
-                         "."
-                         "."
-                         "."
-                         "."
-                         "."
-                         "settings";
+    "trending"
+    "likes"
+    "."
+    "."
+    "."
+    "."
+    "."
+    "settings";
     grid-area: navbar;
     /* align-items: center; */
 }
@@ -108,6 +111,7 @@ body {
     text-align: center; 
     margin: auto;
 }
+
 .navbar-element a{
     text-decoration: none;
     font-weight: bold;
