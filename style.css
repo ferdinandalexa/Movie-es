@@ -84,7 +84,7 @@ body {
     color: black;
 }
 
-.avatar-user{
+.avatar-user {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -103,6 +103,7 @@ body {
 
 .icon-menu:before {
     content: "\e900";
+    margin-right: 10px;
 }
 
 .navbar {
@@ -166,9 +167,10 @@ body {
     width: 100%;
     grid-area: movies;
     overflow: auto;
-    /* position: relative;
-    bottom: 10px; */
-    margin: 0 0 30px;
+}
+
+.peliculas .movie-section:nth-last-of-type(1) {
+    margin-bottom: 30px;
 }
 
 .peliculas .title {
@@ -216,4 +218,29 @@ body {
 
 .movie:hover .description {
     bottom: 0;
+}
+
+@media screen and (max-width: 856px) {
+    .header {
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-areas: "logo search search search user";
+    }
+    .user .user-name {
+        display: none;
+    }
+    .logo {
+        justify-content: flex-end;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .grid-container {
+        grid-template: 70px 1fr 90px/ 1fr;
+        grid-template-areas: "header" "movies" "navbar";
+    }
+
+    .navbar {
+        grid-template: 100% / repeat(4, 1fr);
+        grid-template-areas: "trending home likes settings";
+    }
 }
