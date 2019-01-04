@@ -163,36 +163,35 @@ body {
     content: "\e901";
 }
 
-.peliculas {
+.movies {
     width: 100%;
     grid-area: movies;
     overflow: auto;
 }
 
-.peliculas .movie-section:nth-last-of-type(1) {
+.movies .movie-section:nth-last-of-type(1) {
     margin-bottom: 30px;
 }
 
-.peliculas .title {
-    margin: 30px 10px 10px;
-}
 
 .movie-section {
-    padding: 0 50px;
+    margin: 0 50px;
+    display: grid;
+    grid-template: auto 1fr/ repeat(3, 1fr);
+    grid-template-areas: "title title title" "movie movie movie";
+    column-gap: 10px;
 }
 
-.movies {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    width: 100%;
-    /* overflow: hidden; */
+.movies .title {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    grid-area: title
 }
 
 .movie {
     max-width: 400px;
-    max-height: 224px;
+    height: 224px;
     position: relative;
-    margin: 0 10px;
     overflow: hidden;
 }
 
@@ -224,6 +223,7 @@ body {
     .header {
         grid-template-columns: repeat(5, 1fr);
         grid-template-areas: "logo search search search user";
+        position: sticky;
     }
     .user .user-name {
         display: none;
@@ -235,12 +235,34 @@ body {
 
 @media screen and (max-width: 768px) {
     .grid-container {
-        grid-template: 70px 1fr 90px/ 1fr;
+        grid-template: 70px 1fr 70px/ 1fr;
         grid-template-areas: "header" "movies" "navbar";
+    }
+    .header {
+        grid-template-areas: "search search search search user";
+        position: sticky;
+    }
+
+    .logo {
+        display: none;
     }
 
     .navbar {
         grid-template: 100% / repeat(4, 1fr);
         grid-template-areas: "trending home likes settings";
+    }
+    .movie-section {
+        margin: 10px;
+        grid-template: auto repeat(3,1fr)/ 1fr;
+        grid-template-areas: "title" "movie" "movie" "movie";
+        row-gap: 10px;
+        justify-items: center;
+    }
+
+    .movies {
+        overflow: initial;
+    }
+    .movies .title {
+        margin-bottom: 0; 
     }
 }
